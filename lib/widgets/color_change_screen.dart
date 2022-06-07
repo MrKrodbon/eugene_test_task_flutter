@@ -30,13 +30,6 @@ class _ColorChangeScreenState extends State<ColorChangeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Test Task',
-          style: TextStyle(fontSize: 20),
-        ),
-        centerTitle: true,
-      ),
       body: GestureDetector(
         onTap: () => randomizeBackgroundColor(),
         child: Container(
