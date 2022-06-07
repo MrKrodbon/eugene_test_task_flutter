@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:eugenesoshyn_testtaskflutter/resources/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -30,14 +31,21 @@ class _ColorChangeScreenState extends State<ColorChangeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Test Task'),
+        title: const Text(
+          'Test Task',
+          style: TextStyle(fontSize: 20),
+        ),
+        centerTitle: true,
       ),
       body: GestureDetector(
         onTap: () => randomizeBackgroundColor(),
         child: Container(
           color: _color,
           child: const Center(
-            child: Text('Hey there'),
+            child: Text(
+              'Hey there',
+              style: TextStyle(fontSize: 35),
+            ),
           ),
         ),
       ),
