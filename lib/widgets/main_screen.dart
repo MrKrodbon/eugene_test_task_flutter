@@ -5,7 +5,7 @@ void main() {
   runApp(const MainScreen());
 }
 
-///main  screen widget
+///Main  screen widget.
 class MainScreen extends StatelessWidget {
   ///constructor of MainScreen
   const MainScreen({Key? key}) : super(key: key);
@@ -21,3 +21,4 @@ class MainScreen extends StatelessWidget {
     );
   }
 }
+
