@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 ///const colors for application
 class AppColors {
   ///Color of application at the beginning.
-  static const int _startColor = 0xffffffff;
-  Color _randomColor = const Color(_startColor);
+  static const Color _startColor = Color.fromARGB(0, 255, 0, 0);
 
   ///Get the value of startColor
-  int get startColor => _startColor;
-
-  ///Get the value of  _randomColor
-  Color get randomColor => _randomColor;
+  Color get startColor => _startColor;
 
   ///Randomize  color of ColorChangeScreen.
-  Color randomizeColor() => _randomColor = Color(Random().nextInt(startColor));
+  Color randomizeColor() => Color(
+        Random().nextInt(
+          int.parse(
+            startColor.toString(),
+          ),
+        ),
+      );
 }
