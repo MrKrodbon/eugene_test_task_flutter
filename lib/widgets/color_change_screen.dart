@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:eugenesoshyn_testtaskflutter/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -11,12 +13,21 @@ class ColorChangeScreen extends StatefulWidget {
 }
 
 class _ColorChangeScreenState extends State<ColorChangeScreen> {
-  final appColors = AppColors();
-
+  final _random = Random();
+  Color _startColor = Colors.red;
+  final colorNumber = 256;
   @override
   void initState() {
     super.initState();
-    appColors.startColor;
+  }
+
+  void randomizeColor() {
+    _startColor = Color.fromARGB(
+      _random.nextInt(colorNumber),
+      _random.nextInt(colorNumber),
+      _random.nextInt(colorNumber),
+      _random.nextInt(colorNumber),
+    );
   }
 
   @override
@@ -24,10 +35,10 @@ class _ColorChangeScreenState extends State<ColorChangeScreen> {
     return Scaffold(
       body: GestureDetector(
         onTap: () => setState(() {
-          appColors.randomizeColor();
+          randomizeColor();
         }),
         child: Container(
-          color: appColors.randomColor,
+          color: _startColor,
           child: const Center(
             child: Text(
               'Hey there',
