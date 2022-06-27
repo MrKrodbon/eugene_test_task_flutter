@@ -1,12 +1,11 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:eugenesoshyn_testtaskflutter/resources/app_colors.dart';
 import 'package:flutter/material.dart';
 
-///Screen with randomized background colors
+///Screen with randomized background colors.
 class ColorChangeScreen extends StatefulWidget {
-  ///constructor of MyHomePage
+  ///constructor of ColorChangeScreen
   const ColorChangeScreen({Key? key}) : super(key: key);
 
   @override
@@ -14,26 +13,32 @@ class ColorChangeScreen extends StatefulWidget {
 }
 
 class _ColorChangeScreenState extends State<ColorChangeScreen> {
-  Color _color = const Color(AppColors.startColor);
-
-  void randomizeBackgroundColor() {
-    setState(() {
-      _color = Color(Random().nextInt(AppColors.startColor));
-    });
-  }
-
+  final _random = Random();
+  Color _startColor = Colors.red;
+  final colorNumber = 256;
   @override
   void initState() {
     super.initState();
+  }
+
+  void randomizeColor() {
+    _startColor = Color.fromARGB(
+      _random.nextInt(colorNumber),
+      _random.nextInt(colorNumber),
+      _random.nextInt(colorNumber),
+      _random.nextInt(colorNumber),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        onTap: () => randomizeBackgroundColor(),
+        onTap: () => setState(() {
+          randomizeColor();
+        }),
         child: Container(
-          color: _color,
+          color: _startColor,
           child: const Center(
             child: Text(
               'Hey there',
